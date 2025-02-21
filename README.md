@@ -6,7 +6,7 @@ This repository contains C++ projects from the 42 curriculum, designed to teach 
 
 ## 📚 Project List
 
-### 1. C++00: Introduction
+### 1. (C++00)[FIRST CIRCLE/: Introduction
 - Basic C++ syntax and structure
 - Focus: variables, data types, control structures, functions
 - Perfect for beginners starting with C++
