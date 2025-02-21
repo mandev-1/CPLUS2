@@ -61,3 +61,46 @@ After completing these projects, students will be able to:
 - Create robust and maintainable applications
 
 Each project builds upon previous concepts, creating a comprehensive learning path in modern C++ programming.
+
+
+------
+
+## 📚 Module Summaries
+
+### [C++ 05: Exceptions](SECOND%20CIRCLE/CPP05)
+- Introduction to exception handling
+- Try-catch blocks
+- Custom exception classes
+- Stack unwinding
+- Best practices for exception safety
+
+### [C++ 06: Type Casting](SECOND%20CIRCLE/CPP06)
+- Static cast
+- Dynamic cast
+- Reinterpret cast
+- Const cast
+- Type conversion operators
+- Explicit keyword usage
+
+### [C++ 07: Templates](SECOND%20CIRCLE/CPP07)
+- Function templates
+- Class templates
+- Template specialization
+- Template metaprogramming basics
+- STL container usage
+- Template parameter deduction
+
+### [C++ 08: STL Containers](SECOND%20CIRCLE/CPP08)
+- Sequential containers (vector, list, deque)
+- Associative containers (map, set)
+- Container adaptors (stack, queue)
+- Iterators and algorithms
+- STL utility functions
+
+### [C++ 09: STL-2](SECOND%20CIRCLE/CPP09)
+- Advanced algorithm usage
+- Function objects (functors)
+- Lambda expressions
+- STL iterators in depth
+- Container operations
+- Performance considerations
