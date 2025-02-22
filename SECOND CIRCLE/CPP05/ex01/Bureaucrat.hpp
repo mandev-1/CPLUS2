@@ -4,7 +4,7 @@
 #pragma once
 #include <string>
 #include <iostream>
-
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -31,6 +31,7 @@ class Bureaucrat
         void decrementGrade();
         // This increases the category - 1 is the highest, 150 is the lowest
         void incrementGrade();
+        void signForm(Form& form);
 
 
 // NEW THING -- EXCEPTIONS:

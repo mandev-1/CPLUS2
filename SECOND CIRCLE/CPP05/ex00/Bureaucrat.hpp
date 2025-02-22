@@ -5,7 +5,6 @@
 #include <string>
 #include <iostream>
 
-
 class Bureaucrat
 {
     private:

@@ -2,7 +2,6 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
-#include "Intern.hpp"
 
 int main(void)
 {
@@ -95,83 +94,5 @@ int main(void)
         AForm* form = new ShrubberyCreationForm("test");
         delete form;
     }
-    std::cout << BLUE << "\n=== Testing Intern Form Creation ===" << RESET << std::endl;
-    try
-    {
-        Intern someRandomIntern;
-        Bureaucrat boss("Boss", 1);
-
-        std::cout << YELLOW << "Testing valid form creation:" << RESET << std::endl;
-        AForm* rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-        AForm* prf = someRandomIntern.makeForm("presidential pardon", "Criminal");
-        AForm* scf = someRandomIntern.makeForm("shrubbery creation", "Garden");
-
-        if (rrf) {
-            std::cout << GREEN << "Created: " << *rrf << RESET << std::endl;
-            boss.signForm(*rrf);
-            rrf->execute(boss);
-            delete rrf;
-        }
-
-        if (prf) {
-            std::cout << GREEN << "Created: " << *prf << RESET << std::endl;
-            boss.signForm(*prf);
-            prf->execute(boss);
-            delete prf;
-        }
-
-        if (scf) {
-            std::cout << GREEN << "Created: " << *scf << RESET << std::endl;
-            boss.signForm(*scf);
-            scf->execute(boss);
-            delete scf;
-        }
-
-        std::cout << YELLOW << "\nTesting invalid form creation:" << RESET << std::endl;
-        AForm* invalid = someRandomIntern.makeForm("invalid form", "test");
-        if (!invalid) {
-            std::cout << GREEN << "Successfully handled invalid form request" << RESET << std::endl;
-        }
-    }
-    catch (std::exception& e)
-    {
-        std::cout << RED << "Error: " << e.what() << RESET << std::endl;
-    }
-    std::cout << BLUE << "\n=== Testing Form Execution Failures ===" << RESET << std::endl;
-    try {
-        // Test 1: Executing unsigned form
-        Bureaucrat boss("Boss", 1);
-        ShrubberyCreationForm unsignedForm("garden");
-        std::cout << YELLOW << "Attempting to execute unsigned form..." << RESET << std::endl;
-        boss.executeForm(unsignedForm);
-
-        // Test 2: Executing with insufficient grade
-        Bureaucrat intern("Intern", 150);
-        ShrubberyCreationForm signedForm("park");
-        boss.signForm(signedForm); // Sign it with boss first
-        std::cout << YELLOW << "Attempting to execute with low-grade bureaucrat..." << RESET << std::endl;
-        intern.executeForm(signedForm);
-
-        // Test 3: Testing all form types with low-grade bureaucrat
-        PresidentialPardonForm pardon("Criminal");
-        RobotomyRequestForm robotomy("Bender");
-        boss.signForm(pardon);
-        boss.signForm(robotomy);
-        
-        std::cout << YELLOW << "Attempting to execute Presidential Pardon..." << RESET << std::endl;
-        intern.executeForm(pardon);
-        
-        std::cout << YELLOW << "Attempting to execute Robotomy..." << RESET << std::endl;
-        intern.executeForm(robotomy);
-    } 
-    catch (const std::exception& e) {
-        std::cout << RED << "Unexpected error: " << e.what() << RESET << std::endl;
-    }
-    Intern someRandomIntern;
-    AForm* rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    if (rrf)
-        delete rrf;
-
     return EXIT_SUCCESS;
 }

@@ -79,12 +79,6 @@ int main(void)
         std::cout << YELLOW "Signing with boss..." RESET << std::endl;
         basicForm.beSigned(boss);
         std::cout << "Form status: " << basicForm << std::endl;
-
-        std::cout << YELLOW "Attempting to sign with intern using signForm() method..." RESET << std::endl;
-        intern.signForm(basicForm); // This will print the exception message from signForm
-
-        std::cout << YELLOW "Signing with boss using signForm() method..." RESET << std::endl;
-        boss.signForm(basicForm); // This should sign the form successfully
     }
     catch (const std::exception& e) {
         std::cout << RED "Error: " << e.what() << RESET << std::endl;

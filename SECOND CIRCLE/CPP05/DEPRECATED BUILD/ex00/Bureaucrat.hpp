@@ -1,8 +1,9 @@
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
+
 #pragma once
 #include <string>
 #include <iostream>
-#include "AForm.hpp"
-
 
 
 class Bureaucrat
@@ -24,14 +25,12 @@ class Bureaucrat
         virtual ~Bureaucrat();
 
         std::string getName() const;
-        int getGrade() const;
+        int getGrade();
 
         // This decreases the category - 150 is the lowest, 1 is the highest
         void decrementGrade();
         // This increases the category - 1 is the highest, 150 is the lowest
         void incrementGrade();
-        void signForm(AForm& form);
-		void executeForm(AForm const & form) const;
 
 
 // NEW THING -- EXCEPTIONS:
@@ -49,3 +48,5 @@ class Bureaucrat
 };
 
 std::ostream	&operator<<(std::ostream &o, Bureaucrat *a);
+
+#endif

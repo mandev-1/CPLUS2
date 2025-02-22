@@ -3,8 +3,6 @@
 #include <iostream>
 #include "AForm.hpp"
 
-
-
 class Bureaucrat
 {
     private:

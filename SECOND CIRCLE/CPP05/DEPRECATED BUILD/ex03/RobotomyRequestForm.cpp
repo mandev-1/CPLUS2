@@ -46,8 +46,7 @@ void	RobotomyRequestForm::action() const
 	}
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const
-{
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     AForm::execute(executor);
     this->action();
 }

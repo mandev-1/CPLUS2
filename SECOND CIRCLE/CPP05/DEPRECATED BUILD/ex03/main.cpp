@@ -167,11 +167,6 @@ int main(void)
     catch (const std::exception& e) {
         std::cout << RED << "Unexpected error: " << e.what() << RESET << std::endl;
     }
-    Intern someRandomIntern;
-    AForm* rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    if (rrf)
-        delete rrf;
 
     return EXIT_SUCCESS;
 }

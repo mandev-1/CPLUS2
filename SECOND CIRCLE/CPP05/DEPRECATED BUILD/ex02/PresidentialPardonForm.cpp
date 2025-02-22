@@ -2,6 +2,7 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
+
 PresidentialPardonForm::PresidentialPardonForm(const std::string gName) 
     : AForm("PresidentialPardonForm", 25, 5),  // Initialize parent
       _target(gName)                           // Initialize member

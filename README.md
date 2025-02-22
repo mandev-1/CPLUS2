@@ -118,6 +118,8 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string gName)
 - Const cast
 - Type conversion operators
 - Explicit keyword usage
+- We are also importing some "general purpose functions" from the standard library things for the first time:
+- '#include <cmath>, #include <iomanip>, #include <cstdlib>, #include <climits>
 
 ### [C++ 07: Templates](SECOND%20CIRCLE/CPP07)
 - Function templates

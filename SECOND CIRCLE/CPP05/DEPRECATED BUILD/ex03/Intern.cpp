@@ -44,7 +44,7 @@ AForm* Intern::makeForm(std::string const & formName, std::string const & target
     {
         if (formTypes[i].name == formName) 
         {
-            std::cout << "Intern creates " << formName << " with target " << target << std::endl;
+            std::cout << "Intern creates " << formName << std::endl;
             return (this->*formTypes[i].creator)(target);
         }
     }
