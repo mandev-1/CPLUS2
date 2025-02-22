@@ -24,7 +24,7 @@ class Bureaucrat
 
         virtual ~Bureaucrat();
 
-        std::string getName();
+        std::string getName() const;
         int getGrade();
 
         // This decreases the category - 150 is the lowest, 1 is the highest

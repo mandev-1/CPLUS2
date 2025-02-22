@@ -31,7 +31,7 @@ Form::Form(const Form & other)
 }
 
 Form & Form::operator=(const Form & other)
-{](SECOND%20CIRCLE/CPP05)
+{
     if (this != &other)
     {
         _isSigned = other._isSigned;

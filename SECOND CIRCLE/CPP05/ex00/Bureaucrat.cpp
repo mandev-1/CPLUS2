@@ -55,7 +55,7 @@ Bureaucrat::~Bureaucrat()
 }
 
 // Getters
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
     return _name;
 }

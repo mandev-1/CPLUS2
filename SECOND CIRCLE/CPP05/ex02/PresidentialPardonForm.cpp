@@ -3,9 +3,11 @@
 #include "AForm.hpp"
 
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string gName) : AForm("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const std::string gName) 
+    : AForm("PresidentialPardonForm", 25, 5),  // Initialize parent
+      _target(gName)                           // Initialize member
 {
-	this->_target = gName;
+    
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)

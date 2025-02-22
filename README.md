@@ -67,7 +67,7 @@ Each project builds upon previous concepts, creating a comprehensive learning pa
 
 ## 📚 Module Summaries
 
-### [C++ 05: Exceptions](SECOND%20CIRCLE/CPP05)
+### [C++ 05: Exceptions (And Repetition...)](SECOND%20CIRCLE/CPP05)
 - Introduction to exception handling
 - Try-catch blocks
 - Custom exception classes
