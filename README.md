@@ -72,7 +72,44 @@ Each project builds upon previous concepts, creating a comprehensive learning pa
 - Try-catch blocks
 - Custom exception classes
 - Stack unwinding
+###### Stack Unwinding Process
+
+When an exception is thrown, instead of abruptly terminating the program, the runtime performs **stack unwinding**. This process involves:
+
+- **Cleanup of Local Resources**  
+    As the stack is "unwound," destructors for automatic (local) objects are invoked in the reverse order of their creation. This ensures that any allocated resources—such as memory, file handles, or network connections—are properly released.
+
+- **Safe Exit of Functions**  
+    Each function that is removed from the call stack gets an opportunity to clean up its state. This mechanism helps maintain program stability even when unexpected errors occur.
+
+- **Error Propagation**  
+    The exception travels up the call stack until it is caught by an appropriate handler, allowing the program to either recover or terminate gracefully.
 - Best practices for exception safety
+- [Inheritance Initialization](SECOND%20CIRCLE/CPP05/ShrubberyCreationForm.cpp)
+```cpp
+// When making a new ShrubberyCreationForm("garden"):
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string gName)
+    : AForm("ShrubberyCreationForm", 145, 137),  // 1️⃣ Build parent first!
+      _target(gName)                             // 2️⃣ Then add our piece
+{}
+
+```
+```cpp
+// WRONG WAY ❌
+PresidentialPardonForm::PresidentialPardonForm(const std::string gName) 
+    : AForm("PresidentialPardonForm", 25, 5)
+{
+    this->_target = gName;  // Assignment after construction
+}
+
+// CORRECT WAY ✅
+PresidentialPardonForm::PresidentialPardonForm(const std::string gName) 
+    : AForm("PresidentialPardonForm", 25, 5),  // Initialize parent
+      _target(gName)                           // Initialize member
+{
+}
+```
 
 ### [C++ 06: Type Casting](SECOND%20CIRCLE/CPP06)
 - Static cast

@@ -1,9 +1,9 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(const std::string & name, int gradeSign, int gradeExecute)
+AForm::AForm(const std::string & name, int gradeSign, int gradeExecute)
 :
     _name(name),
     _isSigned(false),
@@ -20,7 +20,7 @@ Form::Form(const std::string & name, int gradeSign, int gradeExecute)
     }
 }
 
-Form::Form(const Form & other)
+AForm::AForm(const AForm & other)
 :
     _name(other._name),
     _isSigned(other._isSigned),
@@ -30,8 +30,8 @@ Form::Form(const Form & other)
     std::cout << "Copying.." << std::endl;
 }
 
-Form & Form::operator=(const Form & other)
-{](SECOND%20CIRCLE/CPP05)
+AForm & AForm::operator=(const AForm & other)
+{
     if (this != &other)
     {
         _isSigned = other._isSigned;
@@ -39,41 +39,41 @@ Form & Form::operator=(const Form & other)
     return *this;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 }
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
     return _name;
 }
 
-bool Form::isSigned() const
+bool AForm::isSigned() const
 {
     return _isSigned;
 }
 
-int Form::getGradeRequiredSign() const
+int AForm::getGradeRequiredSign() const
 {
     return _gradeRequiredSign;
 }
 
-int Form::getGradeRequiredExecute() const
+int AForm::getGradeRequiredExecute() const
 {
     return _gradeRequiredExecute;
 }
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
-    return "Form: grade too high";
+    return "AForm: grade too high";
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
-    return "Form: grade too low";
+    return "AForm: grade too low";
 }
 
-void Form::beSigned(const Bureaucrat & signee)
+void AForm::beSigned(const Bureaucrat & signee)
 {
     if (signee.getGrade() > _gradeRequiredSign)
     {
@@ -82,8 +82,8 @@ void Form::beSigned(const Bureaucrat & signee)
     _isSigned = true;
 }
 
-std::ostream & operator<<(std::ostream & out, const Form & form)
+std::ostream & operator<<(std::ostream & out, const AForm & AForm)
 {
-    out << "Form: " << form.getName() << ", signed: " << std::boolalpha << form.isSigned() << ", grade required to sign: " << form.getGradeRequiredSign() << ", grade required to execute: " << form.getGradeRequiredExecute();
+    out << "AForm: " << AForm.getName() << ", signed: " << std::boolalpha << AForm.isSigned() << ", grade required to sign: " << AForm.getGradeRequiredSign() << ", grade required to execute: " << AForm.getGradeRequiredExecute();
     return out;
 }
