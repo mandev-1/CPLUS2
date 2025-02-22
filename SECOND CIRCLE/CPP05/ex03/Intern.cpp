@@ -4,17 +4,25 @@
 #include "ShrubberyCreationForm.hpp"
 
 // Define the static lookup table
-const Intern::FormType Intern::formTypes[] = {
+const Intern::FormType Intern::formTypes[] =
+{
     {"presidential pardon", &Intern::createPresidentialForm},
     {"robotomy request", &Intern::createRobotomyForm},
     {"shrubbery creation", &Intern::createShrubberyForm}
 };
 
-// Constructor implementations
 Intern::Intern() {}
 Intern::~Intern() {}
-Intern::Intern(Intern const & obj) { (void)obj; }
-Intern & Intern::operator=(Intern const & rhs) { (void)rhs; return *this; }
+Intern::Intern(Intern const & obj)
+{ 
+    (void)obj;
+}
+
+Intern & Intern::operator=(Intern const & rhs) 
+{ 
+    (void)rhs; 
+    return *this; 
+}
 
 // Private form creation methods
 AForm* Intern::createPresidentialForm(std::string const & target) const {
@@ -30,9 +38,12 @@ AForm* Intern::createShrubberyForm(std::string const & target) const {
 }
 
 // Main makeForm method
-AForm* Intern::makeForm(std::string const & formName, std::string const & target) {
-    for (int i = 0; i < 3; i++) {
-        if (formTypes[i].name == formName) {
+AForm* Intern::makeForm(std::string const & formName, std::string const & target)
+{
+    for (int i = 0; i < 3; i++)
+    {
+        if (formTypes[i].name == formName) 
+        {
             std::cout << "Intern creates " << formName << std::endl;
             return (this->*formTypes[i].creator)(target);
         }

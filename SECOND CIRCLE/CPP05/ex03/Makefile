@@ -14,6 +14,7 @@ $(NAME): $(OBJS)
 fclean: clean
 	@rm -rf $(NAME)
 	@rm -rf garden_shrubbery
+	@rm -rf Garden_shrubbery
 
 clean:
 	@rm -rf $(OBJS)

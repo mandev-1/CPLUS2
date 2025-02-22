@@ -71,6 +71,7 @@ void Bureaucrat::decrementGrade()
     if (_grade >= 150)
         throw GradeTooLowException();
     setGrade(_grade + 1);
+    std::cout << "Blud got promoted" << std::endl;
 }
 
 void Bureaucrat::incrementGrade()
@@ -78,6 +79,7 @@ void Bureaucrat::incrementGrade()
     if (_grade <= 1)
         throw GradeTooHighException();
     setGrade(_grade - 1);
+    std::cout << "This is a demotion if I ever saw one" << std::endl;
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
@@ -88,6 +90,29 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
     return "Grade is too high!";
+}
+
+void Bureaucrat::signForm(AForm& form) {
+    try {
+        form.beSigned(*this);
+        std::cout << _name << " signed " << form.getName() << std::endl;
+    }
+    catch (const std::exception& e) {
+        std::cout << _name << " couldn't sign " << form.getName()
+                 << " because " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(AForm const & form) const
+{
+    try {
+        form.execute(*this);
+        std::cout << _name << " executed " << form.getName() << std::endl;
+    }
+    catch (const std::exception& e) {
+        std::cout << _name << " couldn't execute " << form.getName()
+                 << " because he is stupid and also because " << e.what() << std::endl;
+    }
 }
 
 // ostream Overload
