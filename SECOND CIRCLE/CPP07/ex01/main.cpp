@@ -22,11 +22,13 @@ int main()
     iter(arrStr, lenStr, printElement<std::string>);
     std::cout << std::endl;
 
-    char arrChar[] = "Lorem ipsum dolor sitamet harry!";
+    char arrChar[] = {'x', 'l', 'c', 'x', 'p', '8'};
     size_t lenChar = sizeof(arrChar) - 1;
     std::cout << "\033[1;33mTesting chars:\033[0m ";
     iter(arrChar, lenChar, printChar);
     std::cout << std::endl;
+    std::cout << lenChar << std::endl;
+
 
     double arrDouble[] = {3.14, 2.718, 1.414, 1.732, 2.236};
     size_t lenDouble = sizeof(arrDouble) / sizeof(arrDouble[0]);
