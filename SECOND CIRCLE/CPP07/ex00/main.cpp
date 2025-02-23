@@ -1,3 +1,5 @@
+#include "whatever.hpp"
+
 int main( void )
 {
     int a = 2;
@@ -28,3 +30,30 @@ int main( void )
 // min(c, d) = chaine1
 // max(c, d) = chaine2
 // 6
+// Thus--> We will define
+// 1) swap
+// 2) min
+// 3) max
+
+// But how? Well to be able to call it like this, we will define them as a "Global Template functions"
+// 
+//
+// template<typename T>
+// void swap(T &a, T &b)
+// {
+//     T tmp = a;
+//     a = b;
+//     b = tmp;
+// }
+
+// template<typename T>
+// const T& min(const T &a, const T &b)
+// {
+//     return (b < a) ? b : a;
+// }
+
+// template<typename T>
+// const T& max(const T &a, const T &b)
+// {
+//     return (a < b) ? b : a;
+// }

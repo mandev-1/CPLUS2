@@ -7,7 +7,6 @@
         "cstddef": "cpp",
         "cstdio": "cpp",
         "cstdlib": "cpp",
-        "ctime": "cpp",
         "cwchar": "cpp",
         "cwctype": "cpp",
         "array": "cpp",
