@@ -15,9 +15,9 @@ int main()
     mstack.push(5);
     mstack.push(737);
     int i = 0;
-    while (i < 42)
+    while (i < 4)
     {
-        mstack.push(rand());
+        mstack.push(rand() % 12);
         i++;
     }
     mstack.push(0);
