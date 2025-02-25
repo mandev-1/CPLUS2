@@ -19,6 +19,20 @@ bool PmergeMe::validateInput(const std::string& input) {
     return true;
 }
 
+/**
+ * @brief Generates a sequence of Jacobsthal numbers up to a given limit
+ * 
+ * The Jacobsthal sequence is defined as:
+ * J(0) = 0
+ * J(1) = 1
+ * J(n) = J(n-1) + 2*J(n-2) for n > 1
+ * 
+ * @param n The upper limit for generating Jacobsthal numbers
+ * @return std::vector<size_t> Vector containing the Jacobsthal sequence up to n
+ *
+ * @note The sequence will stop when the next Jacobsthal number would exceed n
+ * @note Returns empty vector if n = 0
+ */
 std::vector<size_t> PmergeMe::generateJacobsthalNumbers(size_t n) {
     std::vector<size_t> jacobsthal;
     if (n == 0) return jacobsthal;
@@ -35,6 +49,20 @@ std::vector<size_t> PmergeMe::generateJacobsthalNumbers(size_t n) {
     return jacobsthal;
 }
 
+/**
+ * @brief Inserts an element into a sorted container using binary search
+ * 
+ * @tparam T Container type that supports random access (e.g., vector, deque)
+ * @param container The sorted container to insert into
+ * @param start Starting index for binary search
+ * @param end Ending index for binary search
+ * @param value Value to be inserted
+ * 
+ * @details Uses binary search (bispacial) to find the correct position (and half) to insert the value
+ * while maintaining the sorted order of the container. The container must be
+ * sorted before calling this function. The insertion is performed at the found
+ * position using container's insert method.
+ */
 template<typename T>
 void PmergeMe::insertElement(T& container, size_t start, size_t end,
                            typename T::value_type value) {
@@ -48,6 +76,28 @@ void PmergeMe::insertElement(T& container, size_t start, size_t end,
     container.insert(container.begin() + start, value);
 }
 
+/**
+ * @brief Performs Ford-Johnson (merge-insertion) sorting algorithm on a container
+ * 
+ * This algorithm works by:
+ * 1. Pairing elements and creating a main chain of larger elements and pending chain of smaller elements
+ * 2. Sorting the main chain
+ * 3. Inserting elements from pending chain using Jacobsthal numbers for optimal insertion sequence
+ * 
+ * @tparam T Container type that supports random access (e.g., vector, deque)
+ * @param container Reference to container to be sorted
+ * 
+ * The algorithm has the following steps:
+ * - Pairs elements and separates them into main_chain (larger elements) and pending (smaller elements)
+ * - Handles odd-sized input by storing the unpaired element
+ * - Sorts the main chain
+ * - Generates Jacobsthal numbers for optimal insertion sequence
+ * - Inserts pending elements into the sorted main chain using binary insertion
+ * - Finally inserts the unpaired element (if exists)
+ * 
+ * Time Complexity: O(n log n)
+ * Space Complexity: O(n)
+ */
 template<typename T>
 void PmergeMe::fordJohnsonSort(T& container) {
     if (container.size() <= 1) return;
