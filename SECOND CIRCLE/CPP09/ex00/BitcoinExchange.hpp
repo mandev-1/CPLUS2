@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <map>
-#include <vector>
+#include <list>  // Change from vector to list
 
 class BitcoinExchange
 {
@@ -14,9 +14,9 @@ class BitcoinExchange
         BitcoinExchange(BitcoinExchange const & oth);
         BitcoinExchange & operator=(BitcoinExchange const & rhs);
         std::string valueDate(std::string input, std::map<std::string, double> valueBank);
-        std::vector<std::pair<std::string, double>> readInput(const std::string& filename);
+        std::list<std::pair<std::string, double>> readInput(const std::string& filename); // Change return type to list
         std::map<std::string, double> readData(const std::string& filename);
-        void processData(std::vector<std::pair<std::string, double>> input, std::map<std::string, double> bank);
+        void processData(std::list<std::pair<std::string, double>> input, std::map<std::string, double> bank); // Change parameter type to list
 };
 
 // $> ./btc

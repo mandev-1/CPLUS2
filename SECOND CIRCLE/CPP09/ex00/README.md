@@ -1,5 +1,7 @@
 # Bitcoin Value Calculator
 
+> Optimal Container: *std::map*
+
 ## Overview
 Create a program that calculates Bitcoin value at specific historical dates using CSV data.
 

@@ -107,9 +107,9 @@ std::map<std::string, double> BitcoinExchange::readData(const std::string& filen
     return data;
 }
 
-std::vector<std::pair<std::string, double>> BitcoinExchange::readInput(const std::string& filename) 
+std::list<std::pair<std::string, double>> BitcoinExchange::readInput(const std::string& filename) 
 {
-    std::vector<std::pair<std::string, double>> result;
+    std::list<std::pair<std::string, double>> result;
     std::ifstream file(filename);
     if (!file.is_open())
     {
@@ -140,12 +140,12 @@ std::vector<std::pair<std::string, double>> BitcoinExchange::readInput(const std
     return result;
 }
 
-void BitcoinExchange::processData(std::vector<std::pair<std::string, double>> input, 
+void BitcoinExchange::processData(std::list<std::pair<std::string, double>> input, 
                                 std::map<std::string, double> bank)
 {
-    for (size_t i = 0; i < input.size(); i++) {
-        std::string result = valueDate(input[i].first + " | " + 
-                                     std::to_string(input[i].second), bank);
+    for (const auto& pair : input) {
+        std::string result = valueDate(pair.first + " | " + 
+                                     std::to_string(pair.second), bank);
         std::cout << result << std::endl;
     }
 }

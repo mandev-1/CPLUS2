@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     }
     
     BitcoinExchange btc;
-    std::vector<std::pair<std::string, double>> input = btc.readInput(argv[1]);
+    std::list<std::pair<std::string, double>> input = btc.readInput(argv[1]);
     std::map<std::string, double> bank = btc.readData("data.csv");
     btc.processData(input, bank);
 
